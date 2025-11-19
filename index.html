@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Profil - Kiaa</title>
+  <style>
+    /* ======= GAYA DASAR ======= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #ffe6f0;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      color: #d63384;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ======= NAVBAR ======= */
+    nav {
+      width: 100%;
+      background-color: #ff80b3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    nav .logo {
+      color: white;
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffe6f0;
+    }
+
+    /* ======= SECTION UMUM ======= */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    /* ======= HOME ======= */
+    #home {
+      background-color: #ffd6e8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #home img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid #ff99cc;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    #home h1 {
+      font-size: 2.5em;
+    }
+
+    #home p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    /* ======= ABOUT ======= */
+    #about {
+      background-color: #ffe6f0;
+    }
+
+    #about p {
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    /* ======= EXPERIENCE ======= */
+    #experience {
+      background-color: #ffd6e8;
+    }
+
+    .exp-item {
+      background-color: #ffb3d9;
+      border-radius: 15px;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 600px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    .exp-item h3 {
+      margin-bottom: 5px;
+    }
+
+    /* ======= PROJECT ======= */
+    #project {
+      background-color: #ffe6f0;
+    }
+
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .project {
+      background-color: #ffb3d9;
+      padding: 20px;
+      border-radius: 15px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .project:hover {
+      transform: scale(1.05);
+    }
+
+    /* ======= SKILL ======= */
+    #skill {
+      background-color: #ffd6e8;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .skill {
+      background-color: #ff99cc;
+      padding: 15px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      color: #4a004a;
+    }
+
+    /* ======= CONTACT ======= */
+    #contact {
+      background-color: #ffe6f0;
+    }
+
+    .contact-box {
+      background-color: #ffb3d9;
+      display: inline-block;
+      padding: 25px 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-box p {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+    }
+
+    .contact-box a {
+      background-color: #ff66b2;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .contact-box a:hover {
+      background-color: #e60073;
+    }
+
+    /* ======= FOOTER ======= */
+    footer {
+      background-color: #ff80b3;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9em;
+    }
+
+    /* ======= RESPONSIVE ======= */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+      section {
+        padding: 80px 15px;
+      }
+      .project, .exp-item {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======= NAVBAR ======= -->
+  <nav>
+    <div class="logo">Kiaa 🧚🏻‍♀️</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#About">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#skill">Skill</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ======= HOME ======= -->
+  <section id="home">
+    <img src="ask.jpeg" alt="Foto Profil">
+    <h1> Welcome To My Website  💖</h1>
+    <p>Siswi | PPLG | Pecinta Warna Pink</p>
+  </section>
+
+  <!-- ======= About ======= -->
+  <section id="About">
+    <h2>Biodata</h2>
+    <p>
+Nama Lengkap : Ashqya Syifa Ashfani
+<br>
+Tempat Tanggal Lahir : Purwakarta 29 November 2009
+<br> Jenis Kelamin : Perempuan
+<br> Golongan Darah : O 
+<br> Agama : Islam
+<br> Status : Belum Menikah
+<br> Email : Ashqya1234@gmail.com
+      <br> Kewarganegaraan : Indonesia
+      <br> Alamat : Perum Pesona Griya Asri
+     <br> Hobby : Menulis
+      <br> Tingkat Pendidikan : <br> TK (Ra Pagelaran)
+      
+    <br>  SD (Mi Pagelaran) 
+      <br> SMP : (Smp Negeri 7 Purwakarta)
+      <br> SMK : (Smk Negeri 2 Purwakarta)
+     
+<br>
+      <br>Haloo! Aku Ashqya, seorang siswi kelas 10 dengan jurusan Pengembangan Perangkat Lunak Dan Gim, yang menyukai sesuatu yang berbau warna pink atau hal-hal kecil yang menurutku menggemaskan.</p>
+     
+    
+      <br> Aku suka membuat template di pinterest atau canva dengan design lucu, cantik, dan menggemaskan, dan aku juga suka berbelanja di platform seperti shopee  ataupun tiktok shoop secara langsung.</p>
+      
+      
+     <br>Aku terlahir sebagai anak bungsu yang mempunyai kaka 3 yaitu kaka perempuan 2 dan kaka laki laki 1.</p>
+     
+     <br>Aku sangat suka liburan, seperti ke pantai, wisatawan ataupun kegunung. Dan keluarga ku sangat suka family time pergi kecurug untuk camping atau juga  sering pergi kejawa dan mampir ke malioboro.</p>
+     
+   
+   
+    
+  </section>
+
+  <!-- ======= EXPERIENCE ======= -->
+  <section id="experience">
+    <h2>Pengalaman</h2>
+    <div class="exp-item">
+      <h3>Pernah mengkuti kegiatan LDKS </h3>
+      <p>Melatih Dasar Kepemimpinan.</p>
+    </div>
+    <div class="exp-item">
+      <h3>Menjadi Panitia Persami </h3>
+      <p>Membantu Anak-anak Pramuka.</p>
+    </div>
+    <div class="exp-item">
+      <h3>Berkesempatan Menjadi Wakil KM</h3>
+      <p>Selama Periode Semester 2 Kelas 9.</p>
+    </div>
+    <div class="exp-item">
+      <h3>Menjadi Panitia Di LDKS</h3>
+      <p>Perwakilan Dari Ekskul Pmr.</h3>
+      </div>
+      <div class="exp-item">
+        <h3>Tampil Demos Saat MPLS</h3>
+        <p>Bagian Penolong 2 Tahun Berturut-turut.<h3>
+      </div>
+      <div class="exp-item">
+        <h3>Melantik Adik Kelas </h3>
+        <p>Pos Angkat Pasien.<h3>
+        	</div>
+        	<div class="exp-item">
+        		<h3>Foto Bersama Pemain U 17</h3>
+        		<p>Dafa Al Gasemi Setiawarman.</p>
+      
+      
+  </section>
+
+  <!-- ======= PROJECT ======= -->
+  <section id="project">
+    <h2>Proyek Saya</h2>
+    <div class="project-list">
+      <div class="project">
+        <h3>Elemen Semantik</h3>
+        <p>Di HTML.</p>
+      </div>
+      <div class="project">
+        <h3>Formulir Registrasi</h3>
+        <p>Kejuaraan Olimpiade.</p>
+      </div>
+      <div class="project">
+        <h3>Web Profile</h3>
+        <p>Biodata Diri.</p>
+      </div>
+      <dic class="project">
+        <h3>Biodata Tabel</h3>
+        <p>Biodata Siswa.</p>
+        </div>
+    
+    <div>
+    
+  </section>
+
+  <!-- ======= SKILL ======= -->
+  <section id="skill">
+    <h2>Keahlian Saya</h2>
+    <div class="skill-list">
+      <div class="skill">MENGURUS TANAMAN</div>
+      <div class="skill">PINTEREST</div>
+      <div class="skill">CAPCUT</div>
+      <div class="skill">CANVA</div>
+      <div class="skill">MEMASAK</div>
+      <div class="skill">MAIN BADMINTON </div>
+    </div>
+  </section>
+
+  <!-- ======= CONTACT ======= -->
+<section id="contact">
+  <h2>Let's connect on my social media below!</h2> <br>
+  
+  <div class="contact-box">
+    <p>Ingin Berkolaborasi atau Sekadar Menyapa?</p> <br>
+ <div class="social-links">
+ 	<!-- Link ke Instagram -->
+ 	<a href="https://www.instagram.com/ssenseea" target="_blank">
+ 		<i class="fab fa-instagram"></i> Instagram
+ 	</a>
+ 	
+ 	
+ 	<!-- Link ke X (Twitter) -->
+ 	<a href="https://x.com/tutysasa" target="_blank">
+ 		<i class="fab fa-x-twitter"></i> X (Twitter)
+ 	</a>
+
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer>
+  <p> cinta terhadap warna pink.💕</p>
+</footer>
+
+</body>
+</htaml>
